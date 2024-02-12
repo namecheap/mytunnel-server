@@ -5,6 +5,7 @@ import optimist from 'optimist';
 
 import log from 'book';
 import Debug from 'debug';
+import fs from 'fs'
 
 import CreateServer from '../server.js';
 
@@ -31,6 +32,12 @@ const argv = optimist
         default: 10,
         describe: 'maximum number of tcp sockets each client is allowed to establish at one time (the tunnels)'
     })
+    .options('certKeyPath', {
+        describe: '',
+    })
+    .options('certPath', {
+        describe: '',
+    })
     .argv;
 
 if (argv.help) {
@@ -42,6 +49,11 @@ const server = CreateServer({
     max_tcp_sockets: argv['max-sockets'],
     secure: argv.secure,
     domain: argv.domain,
+    certificate: argv.certKeyPath && fs.existsSync(argv.certKeyPath)  && 
+                 argv.certPath && fs.existsSync(argv.certPath) ? { 
+        keyPath: argv.certKeyPath,
+        certPath: argv.certPath 
+    } : undefined    
 });
 
 server.listen(argv.port, argv.address, () => {
