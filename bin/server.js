@@ -33,10 +33,10 @@ const argv = optimist
         describe: 'maximum number of tcp sockets each client is allowed to establish at one time (the tunnels)'
     })
     .options('certKeyPath', {
-        describe: '',
+        describe: 'Specify a path to a ssl certificate key. If specified, it will be used to create a TLS tunnel if a client requests it.',
     })
     .options('certPath', {
-        describe: '',
+        describe: 'Specify a path to a ssl certificate. If specified, it will be used to create a TLS tunnel if a client requests it.',
     })
     .argv;
 
