@@ -63,9 +63,11 @@ export default function(opt) {
 
         const isNewClientRequest = ctx.query['new'] !== undefined;
         if (isNewClientRequest) {
+            const secureTunnelRequest = false || (ctx.query['secureTunnel'] !== undefined);
+            
             const reqId = hri.random();
-            debug('making new client with id %s', reqId);
-            const info = await manager.newClient(reqId);
+            debug('making new client with id %s, secureTunnelRequest: %s', reqId, secureTunnelRequest);
+            const info = await manager.newClient(reqId, secureTunnelRequest);
 
             const url = schema + '://' + info.id + '.' + ctx.request.host;
             info.url = url;
@@ -103,8 +105,9 @@ export default function(opt) {
             return;
         }
 
-        debug('making new client with id %s', reqId);
-        const info = await manager.newClient(reqId);
+        const secureTunnelRequest = ctx.query['secureTunnel'] !== undefined;
+        debug('making new client with id %s, secureTunnelRequest: %s', reqId, secureTunnelRequest);
+        const info = await manager.newClient(reqId, secureTunnelRequest);
 
         const url = schema + '://' + info.id + '.' + ctx.request.host;
         info.url = url;
