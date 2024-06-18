@@ -35,7 +35,7 @@
   "scripts": {
     "test": "mocha --check-leaks **/*.test.js",
     "start": "./bin/server.js",
-    "dev": "DEBUG=mytunnel* nodemon bin/server.js --port 3000",
-    "prepare": "husky"
+    "dev": "DEBUG=mytunnel* nodemon bin/server.js --port 8087 --domain localhost",
+    "prepare": "husky install"
   }
 }
