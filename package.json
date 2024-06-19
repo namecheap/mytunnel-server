@@ -25,14 +25,17 @@
     "tldjs": "2.3.1"
   },
   "devDependencies": {
+    "husky": "9.0.11",
     "mocha": "^8.3.0",
     "nodemon": "2.0.7",
+    "sinon": "18.0.0",
     "supertest": "3.1.0",
     "ws": "5.1.1"
   },
   "scripts": {
     "test": "mocha --check-leaks **/*.test.js",
     "start": "./bin/server.js",
-    "dev": "DEBUG=mytunnel* nodemon bin/server.js --port 3000"
+    "dev": "DEBUG=mytunnel* nodemon bin/server.js --port 8087 --domain localhost",
+    "prepare": "husky install"
   }
 }
