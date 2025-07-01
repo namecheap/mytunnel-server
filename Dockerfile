@@ -1,11 +1,9 @@
-FROM node:14-alpine
+FROM node:20-alpine
 
 WORKDIR /codebase
 
-COPY package.json /codebase/
-COPY package-lock.json /codebase/
-
-RUN npm install --production
+COPY package*.json /codebase/
+RUN npm ci --production
 
 COPY . /codebase
 
