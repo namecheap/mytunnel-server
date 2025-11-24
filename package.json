@@ -24,6 +24,8 @@
     "tldjs": "2.3.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "20.1.0",
+    "@commitlint/config-conventional": "20.0.0",
     "husky": "9.1.7",
     "mocha": "^11.7.5",
     "nodemon": "3.1.11",
@@ -32,7 +34,7 @@
     "ws": "8.18.3"
   },
   "scripts": {
-    "test": "mocha --check-leaks --exit **/*.test.js",
+    "test": "mocha --check-leaks **/*.test.js",
     "start": "./bin/server.js",
     "dev": "DEBUG=mytunnel* nodemon bin/server.js --port 8087 --domain localhost",
     "prepare": "husky install"
