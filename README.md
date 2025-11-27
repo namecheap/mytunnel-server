@@ -2,7 +2,7 @@
 
 mytunnel exposes your localhost to the world for easy testing and sharing! No need to mess with DNS or deploy just to have others test out your changes.
 
-This repo is the server component. If you are just looking for the CLI mytunnel app, see (https://github.com/StyleT/mytunnel).
+This repo is the server component. If you are just looking for the CLI mytunnel app, see (https://github.com/namecheap/easy-tunnel).
 
 ## Overview
 
@@ -17,7 +17,7 @@ The above are important as the client will ask the server for a subdomain under 
 
 ```shell
 # pick a place where the files will live
-git clone git://github.com/StyleT/mytunnel-server.git
+git clone git://github.com/namecheap/mytunnel-server.git
 cd mytunnel-server
 npm install
 
